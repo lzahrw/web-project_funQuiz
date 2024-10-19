@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Quiz - Designer Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <header class="dashboard-header">
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="Fun Quiz Logo">
+            </div>
+            <h2>Welcome, Designer!</h2>
+        </header>
+
+        <!-- Main Menu Section -->
+        <div class="dashboard-menu">
+            <div class="menu-item">
+                <a href="manage-categories.html" class="menu-link">
+                    <div class="menu-icon">&#128194;</div>
+                    <h3>Manage Categories</h3>
+                    <p>Create and organize quiz categories.</p>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="manage-questions-designer.html" class="menu-link">
+                    <div class="menu-icon">&#10067;</div>
+                    <h3>Manage Questions</h3>
+                    <p>Add, edit, or delete quiz questions.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <footer class="dashboard-footer">
+            <p>&copy; 2024 Fun Quiz. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+<style>
+/* Dashboard Page Specific Styling */
+body {
+    background: linear-gradient(135deg, #800080, #FFA500);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.dashboard-container {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    width: 600px;
+    max-width: 95%;
+    text-align: center;
+}
+
+.dashboard-header {
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.dashboard-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-item {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.menu-icon {
+    font-size: 40px;
+    color: #FFA500;
+}
+
+h3 {
+    font-weight: 700;
+}
+
+p {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.dashboard-footer {
+    margin-top: 30px;
+}
+
+.dashboard-footer p {
+    font-size: 14px;
+    color: #FF8C00;
+}
+</style>
