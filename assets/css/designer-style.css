@@ -1,0 +1,118 @@
+/* designer-styles.css */
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Full-screen background styling */
+body {
+    background: linear-gradient(135deg, #ffffff, #875ba5);
+    min-height: 100vh;
+    color: #fff;
+}
+
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:   #875ba586;
+    padding: 15px 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.logo img {
+    width: 120px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.user-id {
+    font-size: 18px;
+    color: #fff;
+}
+
+/* Hamburger menu styling */
+.hamburger-menu {
+    position: fixed;
+    left: -40%;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color:#875ba5d1;
+    overflow: hidden;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.hamburger-menu.open {
+    left: 0;
+}
+
+.hamburger-menu ul {
+    list-style-type: none;
+    padding: 20px;
+}
+
+.hamburger-menu ul li {
+    margin-bottom: 20px;
+}
+
+.hamburger-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.hamburger-menu ul li a:hover {
+    color: #FF8C00;
+}
+
+/* Main content styling */
+.main-content {
+    padding: 40px;
+    text-align: center;
+}
+
+.questions-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.stat-item {
+    background-color:  #FFA500;
+    border-radius: 15px;
+    padding: 20px;
+    width: 25%;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.stat-item h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.stat-item p {
+    font-size: 18px;
+}

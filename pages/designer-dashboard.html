@@ -1,13 +1,70 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Quiz - Designer Page</title>
+    <link rel="stylesheet" href="../assets/css/designer-style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
 </head>
 <body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+    <!-- Header Section -->
+    <header class="header">
+        <!-- User Information -->
+        <div class="user-info">
+            <img src="../assets/images/avatar.png" alt="User Avatar" class="user-avatar" id="menu-toggle">
+            <span class="user-id">Designer</span>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="Fun Quiz Logo">
+        </div>
+    </header>
+
+    <!-- Hamburger Menu -->
+    <nav class="hamburger-menu" id="hamburger-menu">
+        <ul>
+            <li><a href="#" id="home">Home</a></li>
+            <li><a href="#">change password</a></li>
+            <li><a href="#">change avatar</a></li>
+            <li><a href="#">Create Question</a></li>
+            <li><a href="#">Create New Category</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main class="main-content">
+        <h2>Questions Overview</h2>
+        <div class="questions-stats">
+            <div class="stat-item">
+                <h3>Easy</h3>
+                <p>Number of Questions: 10</p>
+            </div>
+            <div class="stat-item">
+                <h3>Medium</h3>
+                <p>Number of Questions: 5</p>
+            </div>
+            <div class="stat-item">
+                <h3>Hard</h3>
+                <p>Number of Questions: 2</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // JavaScript to handle hamburger menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const homeLink = document.getElementById('home');
+
+        menuToggle.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('open');
+        });
+
+        homeLink.addEventListener('click', () => {
+            hamburgerMenu.classList.remove('open');
+        });
+    </script>
 </body>
 </html>
