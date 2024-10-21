@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage Questions - Answer available questions or view previously answered ones.">
+    <link rel="stylesheet" href="../assets/css/manage-questions-style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Nunito:wght@700;800&display=swap">
+    <title>Manage Questions</title>
+</head>
+<body>
+    <header class="header">
+        <div class="user-info">
+            <img src="../assets/images/avatar.png" alt="User Avatar" class="user-avatar">
+            <span class="user-id">Player</span>
+        </div>
+
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="Fun Quiz Logo">
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">Manage Questions</h1>
+
+        <div class="question-actions">
+            <div class="card">
+                <h2>Answer New Questions</h2>
+                <p>Pick a category and start answering new questions!</p>
+                <a href="#" class="button" id="answerQuestionsButton">Answer Questions</a>
+            </div>
+            <div class="card">
+                <h2>View Answered Questions</h2>
+                <p>Check out the questions you've already answered and review your progress.</p>
+                <a href="#" class="button" id="viewAnsweredButton">View Answered</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal" id="answeredModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Answered Questions</h2>
+            <ul>
+                <li>Question 1: Correct</li>
+                <li>Question 2: Incorrect</li>
+                <li>Question 3: Correct</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 FunQuiz. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('answerQuestionsButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'answer-questions.html'; // Replace with your actual URL
+        });
+
+        const viewAnsweredButton = document.getElementById('viewAnsweredButton');
+        const answeredModal = document.getElementById('answeredModal');
+        const closeModal = document.getElementById('closeModal');
+
+        viewAnsweredButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            answeredModal.style.display = 'block';
+        });
+
+        closeModal.addEventListener('click', function() {
+            answeredModal.style.display = 'none';
+        });
+
+        window.onclick = function(event) {
+            if (event.target === answeredModal) {
+                answeredModal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

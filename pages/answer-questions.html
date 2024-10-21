@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Answer available questions and track your progress.">
+    <link rel="stylesheet" href="../assets/css/answer-questions-style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Nunito:wght@700;800&display=swap">
+    <title>Answer Questions</title>
+</head>
+<body>
+    <header class="header">
+        <div class="user-info">
+            <img src="../assets/images/avatar.png" alt="User Avatar" class="user-avatar">
+            <span class="user-id">Player</span>
+        </div>
+
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="Fun Quiz Logo">
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">Answer Questions</h1>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+            <span id="progressText">0 of 5 questions answered</span>
+        </div>
+
+        <div class="question-card">
+            <div class="question-content">
+                <div class="question-front" id="questionFront">
+                    <h2 id="questionText">What is the capital of France?</h2>
+                    <div class="options">
+                        <button class="option" data-answer="incorrect">Berlin</button>
+                        <button class="option" data-answer="incorrect">Madrid</button>
+                        <button class="option" data-answer="correct">Paris</button>
+                        <button class="option" data-answer="incorrect">Rome</button>
+                    </div>
+                </div>
+                <div class="question-back" id="questionBack">
+                    <h2 id="resultText">Correct!</h2>
+                    <p id="correctAnswerText">The capital of France is Paris.</p>
+                    <button class="next-btn" id="nextQuestionBtn">Next Question</button>
+                    <!-- Back to Dashboard Button -->
+                    <button class="back-dashboard-btn" id="backDashboardBtn" style="display: none;">Back to Dashboard</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FunQuiz. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const options = document.querySelectorAll('.option');
+        const questionText = document.getElementById('questionText');
+        const resultText = document.getElementById('resultText');
+        const correctAnswerText = document.getElementById('correctAnswerText');
+        const questionBack = document.getElementById('questionBack');
+        const questionFront = document.getElementById('questionFront');
+        const nextQuestionBtn = document.getElementById('nextQuestionBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        const backDashboardBtn = document.getElementById('backDashboardBtn');
+
+        let currentQuestion = 0;
+        const totalQuestions = 5;
+
+        const questions = [
+            {
+                question: "What is the capital of France?",
+                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                correct: "Paris"
+            },
+            {
+                question: "What is the capital of Spain?",
+                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                correct: "Madrid"
+            },
+            {
+                question: "What is the capital of Germany?",
+                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                correct: "Berlin"
+            },
+            {
+                question: "What is the capital of Italy?",
+                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                correct: "Rome"
+            },
+            {
+                question: "What is the capital of the UK?",
+                options: ["London", "Madrid", "Paris", "Rome"],
+                correct: "London"
+            }
+        ];
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                const answer = option.textContent;
+                const correctAnswer = questions[currentQuestion].correct;
+
+                if (answer === correctAnswer) {
+                    resultText.textContent = "Correct!";
+                    correctAnswerText.textContent = `The correct answer is ${correctAnswer}.`;
+                    questionBack.style.backgroundColor = '#4CAF50';
+                } else {
+                    resultText.textContent = "Incorrect!";
+                    correctAnswerText.textContent = `The correct answer is ${correctAnswer}.`;
+                    questionBack.style.backgroundColor = '#F44336';
+                }
+
+                questionFront.style.transform = "rotateY(180deg)";
+                questionBack.style.transform = "rotateY(0deg)";
+            });
+        });
+
+        nextQuestionBtn.addEventListener('click', () => {
+            currentQuestion++;
+
+            if (currentQuestion < totalQuestions) {
+                const progressPercentage = (currentQuestion / totalQuestions) * 100;
+                progressBar.style.width = progressPercentage + '%';
+                progressText.textContent = `${currentQuestion} of ${totalQuestions} questions answered`;
+
+                questionFront.style.transform = "rotateY(0deg)";
+                questionBack.style.transform = "rotateY(180deg)";
+
+                loadQuestion(currentQuestion);
+            } else {
+                progressBar.style.width = '100%';
+                progressText.textContent = `${totalQuestions} of ${totalQuestions} questions answered`;
+
+                nextQuestionBtn.style.display = 'none';
+                backDashboardBtn.style.display = 'inline-block';
+            }
+        });
+
+        function loadQuestion(index) {
+            questionText.textContent = questions[index].question;
+            const optionsArr = document.querySelectorAll('.option');
+            optionsArr.forEach((option, i) => {
+                option.textContent = questions[index].options[i];
+                option.disabled = false; // Enable options for the new question
+            });
+        }
+
+        loadQuestion(currentQuestion);
+
+        backDashboardBtn.addEventListener('click', () => {
+            window.location.href = 'player-dashboard.html'; // Replace with your actual dashboard URL
+        });
+    </script>
+</body>
+</html>
