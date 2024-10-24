@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Question</title>
+    <link rel="stylesheet" href="../assets/css/designer-style.css">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Create a new question for players in the interactive game platform.">
+    <meta name="keywords" content="interactive game, designer, create question, multiple-choice">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- For responsive design -->
+</head>
+<body>
+    <!-- Sidebar Menu -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="close-btn" onclick="toggleSidebar()">&times;</button>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="designer-dashboard.html">Home</a></li>
+            <li><a href="manage-categories.html">Manage Categories</a></li>
+            <li><a href="manage-questions.html">Manage Questions</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        <!-- Header -->
+        <header>
+            <div class="user-info" onclick="toggleSidebar()">
+                <img src="../assets/images/avatar.png" alt="User Avatar">
+                <span id="user-id">User123</span>
+            </div>
+            <div class="logo">
+                <a href="designer-dashboard.html">
+                    <img src="../assets/images/logo.png" alt="Interactive Game Logo">
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger" onclick="toggleSidebar()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <div class="form-container">
+                <h1>Create New Question</h1>
+
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="question-text">Question Text:</label>
+                        <textarea id="question-text" name="question-text" rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Options:</label>
+                        <input type="text" name="option1" placeholder="Option 1" required>
+                        <input type="text" name="option2" placeholder="Option 2" required>
+                        <input type="text" name="option3" placeholder="Option 3" required>
+                        <input type="text" name="option4" placeholder="Option 4" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correct-answer">Correct Answer:</label>
+                        <select id="correct-answer" name="correct-answer" required>
+                            <option value="" disabled selected>Select Correct Option</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                            <option value="option4">Option 4</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select id="category" name="category" required>
+                            <option value="" disabled selected>Select Category</option>
+                            <!-- Populate with existing categories -->
+                            <option value="category1">Category 1</option>
+                            <option value="category2">Category 2</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="difficulty">Difficulty Level:</label>
+                        <select id="difficulty" name="difficulty" required>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Related Questions:</label>
+                        <div class="related-questions">
+                            <label><input type="checkbox" name="related-questions" value="question1"> Question 1</label>
+                            <label><input type="checkbox" name="related-questions" value="question2"> Question 2</label>
+                            <label><input type="checkbox" name="related-questions" value="question3"> Question 3</label>
+                        </div>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit">Save Question</button>
+                        <button type="button" onclick="location.href='designer-dashboard.html'">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <ul class="footer-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Sidebar Menu -->
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('content').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
