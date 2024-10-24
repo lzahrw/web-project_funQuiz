@@ -1,6 +1,5 @@
+/* login-styles.css */
 /* General Reset */
-
-
 * {
     margin: 0;
     padding: 0;
@@ -10,14 +9,13 @@
 
 /* Full-screen background styling */
 body {
-    background: linear-gradient(135deg, #ffffff, #875ba5);
+    background: linear-gradient(135deg, #87CEEB, #000080);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
 }
-
 
 /* Login container styling */
 .login-container {
@@ -68,12 +66,12 @@ input[type="text"], input[type="password"] {
 }
 
 input[type="text"]:focus, input[type="password"]:focus {
-    border: 2px solid #FF8C00;
+    border: 2px solid #000080;
 }
 
 /* Login button styling */
 .login-btn {
-    background-color: #FFA500;
+    background-color: #000080;
     color: #fff;
     border: none;
     padding: 12px;
@@ -87,7 +85,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 }
 
 .login-btn:hover {
-    background-color: #FF8C00;
+    background-color: #87CEEB;
 }
 
 /* Forgot password link styling */
@@ -96,7 +94,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 }
 
 .forgot-password a {
-    color: rgb(93, 0, 255);
+    color: #000080;
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s;
@@ -139,8 +137,3 @@ input[type="text"]:focus, input[type="password"]:focus {
     background: #1877f2;
     color: #fff;
 }
-
-
-
-
-
