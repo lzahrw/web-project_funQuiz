@@ -2,69 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Quiz - Designer Page</title>
+    <title>Designer Dashboard</title>
     <link rel="stylesheet" href="../assets/css/designer-style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Designer dashboard for creating and managing questions and categories in the interactive game platform.">
+    <meta name="keywords" content="interactive game, designer, dashboard, questions, categories">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <!-- User Information -->
-        <div class="user-info">
-            <img src="../assets/images/avatar.png" alt="User Avatar" class="user-avatar" id="menu-toggle">
-            <span class="user-id">Designer</span>
+    <!-- Sidebar Menu -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="close-btn" onclick="toggleSidebar()">&times;</button>
         </div>
-
-        <!-- Logo -->
-        <div class="logo">
-            <img src="../assets/images/logo.png" alt="Fun Quiz Logo">
-        </div>
-    </header>
-
-    <!-- Hamburger Menu -->
-    <nav class="hamburger-menu" id="hamburger-menu">
-        <ul>
-            <li><a href="#" id="home">Home</a></li>
-            <li><a href="#">change password</a></li>
-            <li><a href="#">change avatar</a></li>
-            <li><a href="#">Create Question</a></li>
-            <li><a href="#">Create New Category</a></li>
+        <ul class="sidebar-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Manage Categories</a></li>
+            <li><a href="#">Manage Questions</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Logout</a></li>
         </ul>
     </nav>
 
-    <!-- Main Content Section -->
-    <main class="main-content">
-        <h2>Questions Overview</h2>
-        <div class="questions-stats">
-            <div class="stat-item">
-                <h3>Easy</h3>
-                <p>Number of Questions: 10</p>
+    <!-- Page Content -->
+    <div id="content">
+        <!-- Header -->
+        <header>
+            <div class="user-info" onclick="toggleSidebar()">
+                <img src="../assets/images/avatar.png" alt="User Avatar">
+                <span id="user-id">User123</span>
             </div>
-            <div class="stat-item">
-                <h3>Medium</h3>
-                <p>Number of Questions: 5</p>
+            <div class="logo">
+                <a href="designer-dashboard.html">
+                    <img src="../assets/images/logo.png" alt="Interactive Game Logo">
+                </a>
             </div>
-            <div class="stat-item">
-                <h3>Hard</h3>
-                <p>Number of Questions: 2</p>
-            </div>
-        </div>
-    </main>
+        </header>
 
+        <!-- Main Content -->
+        <main>
+            <div class="dashboard-container">
+                <h1>Welcome, <span id="designer-name">User123</span>!</h1>
+
+                <div class="quick-actions">
+                    <button onclick="location.href='create-question.html'">Create New Question</button>
+                    <button onclick="location.href='create-category.html'">Create New Category</button>
+                </div>
+
+                <section class="statistics section">
+                    <h2>Your Statistics:</h2>
+                    <ul>
+                        <li>Questions Created: <strong>XX</strong></li>
+                        <li>Categories Created: <strong>XX</strong></li>
+                        <li>Points Earned: <strong>XX</strong></li>
+                    </ul>
+                </section>
+
+                <section class="recent-activity section">
+                    <h2>Recent Activity:</h2>
+                    <ul>
+                        <li>Question: "<a href="#">Sample Question Title</a>" (Date)</li>
+                        <li>Category: "<a href="#">Sample Category Name</a>" (Date)</li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <ul class="footer-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
     <script>
-        // JavaScript to handle hamburger menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const hamburgerMenu = document.getElementById('hamburger-menu');
-        const homeLink = document.getElementById('home');
-
-        menuToggle.addEventListener('click', () => {
-            hamburgerMenu.classList.toggle('open');
-        });
-
-        homeLink.addEventListener('click', () => {
-            hamburgerMenu.classList.remove('open');
-        });
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('content').classList.toggle('active');
+        }
     </script>
 </body>
 </html>
