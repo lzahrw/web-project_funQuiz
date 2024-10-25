@@ -28,6 +28,7 @@
 
         .quick-actions {
             display: flex;
+            flex-wrap: wrap;
             gap: 15px;
             margin-bottom: 30px;
             justify-content: center;
@@ -43,6 +44,8 @@
             border-radius: 8px;
             transition: background 0.3s, transform 0.2s;
             font-weight: bold;
+            height: 48px; /* Set the height for consistency */
+            width: 200px; /* Set the width for consistency */
         }
 
         .quick-actions button:hover, .quick-actions select:hover {
@@ -51,8 +54,6 @@
         }
 
         .quick-actions select {
-            padding: 10px;
-            font-size: 16px;
             color: #333;
             cursor: pointer;
             background-color: #ffffff;
@@ -80,13 +81,18 @@
             transform: translateY(-10px);
         }
 
-        .question-item .correct-answer {
-            color: #28a745; /* Green for correct answer */
+        .question-text {
+            color: #1E90FF; /* Blue color for question text */
             font-weight: bold;
         }
 
-        .question-item .incorrect-answer {
-            color: #1E90FF; /* Blue for incorrect options */
+        .correct-answer {
+            color: #28a745; /* Green color for the correct answer */
+            font-weight: bold;
+        }
+
+        .incorrect-answer {
+            color: #1E90FF; /* Blue color for incorrect answers */
         }
 
         .question-item strong {
@@ -141,6 +147,94 @@
         .footer-links a:hover {
             text-decoration: underline;
         }
+
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: #1E90FF;
+            transition: left 0.3s;
+            z-index: 1000;
+            color: white;
+        }
+
+        #sidebar.active {
+            left: 0;
+        }
+
+        .sidebar-header {
+            padding: 15px;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        .sidebar-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar-links li {
+            padding: 15px;
+        }
+
+        .sidebar-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .close-btn {
+            font-size: 2em;
+            background: none;
+            border: none;
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                width: 90%;
+                padding: 20px;
+                margin: 20px auto;
+            }
+
+            header {
+                padding: 10px 20px;
+            }
+
+            .user-info img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .user-info span {
+                font-size: 1em;
+            }
+
+            .quick-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .quick-actions button, .quick-actions select {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            #sidebar {
+                width: 200px;
+            }
+
+            #content.active {
+                margin-left: 200px;
+            }
+        }
+    </style>
     </style>
 </head>
 <body>
@@ -201,8 +295,7 @@
                     <ul id="questions-list">
                         <!-- Questions -->
                         <li class="question-item" data-category="math" data-designer="Ali Somia">
-                            <strong>Math Question</strong>
-                            What is the value of 9 + 8 × 3?<br>
+                            <div class="question-text">What is the value of 9 + 8 × 3?</div>
                             <span class="incorrect-answer">A) 51</span><br>
                             <span class="incorrect-answer">B) 33</span><br>
                             <span class="incorrect-answer">C) 24</span><br>
@@ -210,8 +303,7 @@
                             <strong>Category: Math | Designer: Ali Somia</strong>
                         </li>
                         <li class="question-item" data-category="math" data-designer="Maryam">
-                            <strong>Math Question</strong>
-                            If 4x = 28, what is the value of x?<br>
+                            <div class="question-text">If 4x = 28, what is the value of x?</div>
                             <span class="correct-answer">A) 7</span><br>
                             <span class="incorrect-answer">B) 6</span><br>
                             <span class="incorrect-answer">C) 5</span><br>
@@ -219,8 +311,7 @@
                             <strong>Category: Math | Designer: Maryam</strong>
                         </li>
                         <li class="question-item" data-category="math" data-designer="Muhammad">
-                            <strong>Math Question</strong>
-                            What is the next number in the sequence: 2, 4, 8, 16, __?<br>
+                            <div class="question-text">What is the next number in the sequence: 2, 4, 8, 16, __?</div>
                             <span class="incorrect-answer">A) 18</span><br>
                             <span class="incorrect-answer">B) 24</span><br>
                             <span class="correct-answer">C) 32</span><br>
@@ -228,8 +319,7 @@
                             <strong>Category: Math | Designer: Muhammad</strong>
                         </li>
                         <li class="question-item" data-category="geography" data-designer="Ali Somia">
-                            <strong>Geography Question</strong>
-                            Which is the largest ocean on Earth?<br>
+                            <div class="question-text">Which is the largest ocean on Earth?</div>
                             <span class="incorrect-answer">A) Atlantic Ocean</span><br>
                             <span class="incorrect-answer">B) Indian Ocean</span><br>
                             <span class="correct-answer">C) Pacific Ocean</span><br>
@@ -237,8 +327,7 @@
                             <strong>Category: Geography | Designer: Ali Somia</strong>
                         </li>
                         <li class="question-item" data-category="geography" data-designer="User123">
-                            <strong>Geography Question</strong>
-                            In which continent is the country of Brazil located?<br>
+                            <div class="question-text">In which continent is the country of Brazil located?</div>
                             <span class="incorrect-answer">A) Africa</span><br>
                             <span class="incorrect-answer">B) Europe</span><br>
                             <span class="correct-answer">C) South America</span><br>
@@ -246,8 +335,7 @@
                             <strong>Category: Geography | Designer: User123</strong>
                         </li>
                         <li class="question-item" data-category="social-science" data-designer="Maryam">
-                            <strong>Social Science Question</strong>
-                            Who is known as the father of Sociology?<br>
+                            <div class="question-text">Who is known as the father of Sociology?</div>
                             <span class="incorrect-answer">A) Max Weber</span><br>
                             <span class="correct-answer">B) Auguste Comte</span><br>
                             <span class="incorrect-answer">C) Karl Marx</span><br>
@@ -255,8 +343,7 @@
                             <strong>Category: Social Science | Designer: Maryam</strong>
                         </li>
                         <li class="question-item" data-category="social-science" data-designer="User123">
-                            <strong>Social Science Question</strong>
-                            Which ancient civilization built the pyramids?<br>
+                            <div class="question-text">Which ancient civilization built the pyramids?</div>
                             <span class="incorrect-answer">A) Romans</span><br>
                             <span class="incorrect-answer">B) Greeks</span><br>
                             <span class="correct-answer">C) Egyptians</span><br>
