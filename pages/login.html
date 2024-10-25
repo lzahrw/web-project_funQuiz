@@ -8,34 +8,75 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
 </head>
 <body>
-    <div class="login-container">
-        <!-- Logo -->
+    <header class="header">
         <div class="logo">
-            <img src="../assets/images/logo.png" alt="Fun Quiz Logo">
+            <a href="index.html"><img src="../assets/images/logo.png" alt="Fun Quiz Logo"></a>
         </div>
+    </header>
 
-        <!-- Login Form -->
-        <h2>Login to Fun Quiz</h2>
-        <form action="#" method="post">
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+    <main class="main-content">
+        <div class="login-container">
+            <div class="tab-menu">
+                <a href="#" class="tab active" data-role="player">Player</a>
+                <a href="#" class="tab" data-role="designer">Designer</a>
             </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="login-btn">Login</button>
-        </form>
 
-        <!-- Forgot Password Link -->
-        <div class="forgot-password">
-            <a href="#">Forgot your password?</a>
+            <div class="form-container">
+                <form action="player-dashboard.html" id="player-form" class="active-form">
+                    <h2>Login as Player</h2>
+                    <label for="player-username">Username</label>
+                    <input type="text" id="player-username" name="username" required>
+
+                    <label for="player-password">Password</label>
+                    <input type="password" id="player-password" name="password" required>
+
+                    <button type="submit">Login</button>
+                </form>
+
+                <form action="designer-dashboard.html" id="designer-form">
+                    <h2>Login as Designer</h2>
+                    <label for="designer-username">Username</label>
+                    <input type="text" id="designer-username" name="username" required>
+
+                    <label for="designer-password">Password</label>
+                    <input type="password" id="designer-password" name="password" required>
+
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+
+            <div class="bottom-text">
+                <p>Don't have an account? <a href="sign-in.html">Sign in</a></p>
+            </div>
         </div>
+    </main>
 
-        <!-- Social Login Options -->
-    </div>
+    <footer>
+        <p>&copy; 2024 FunQuiz. All rights reserved.</p>
+    </footer>
+
+    <!-- <script src="sign-in.js"></script> -->
+    <script>
+        // Switching between Player and Designer form
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function () {
+                document.querySelector('.tab.active').classList.remove('active');
+                this.classList.add('active');
+
+                // Toggle forms
+                if (this.getAttribute('data-role') === 'player') {
+                    document.getElementById('designer-form').classList.remove('active-form');
+                    document.getElementById('player-form').classList.add('active-form');
+                } else {
+                    document.getElementById('player-form').classList.remove('active-form');
+                    document.getElementById('designer-form').classList.add('active-form');
+                }
+            });
+        });
+    </script>
+
 </body>
+
 </html>
 
 
