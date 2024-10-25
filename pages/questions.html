@@ -2,63 +2,329 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Manage Questions</title>
+    <link rel="stylesheet" href="../assets/css/designer-style.css">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Manage questions and filter them by category or designer.">
+    <meta name="keywords" content="questions, manage, filter, designer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/questions-style.css">
-    
-    <title>Question Bank</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f0f0, #d4e6f1);
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .dashboard-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            width: 800px;
+            max-width: 95%;
+            margin: 50px auto;
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .quick-actions button, .quick-actions select {
+            background: linear-gradient(135deg, #87CEFA, #1E90FF);
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.2s;
+            font-weight: bold;
+        }
+
+        .quick-actions button:hover, .quick-actions select:hover {
+            background: linear-gradient(135deg, #1E90FF, #4682B4);
+            transform: scale(1.05);
+        }
+
+        .quick-actions select {
+            padding: 10px;
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            appearance: none; /* Removes default browser styles */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .questions-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .question-item {
+            background: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .question-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .question-item .correct-answer {
+            color: #28a745; /* Green for correct answer */
+            font-weight: bold;
+        }
+
+        .question-item .incorrect-answer {
+            color: #1E90FF; /* Blue for incorrect options */
+        }
+
+        .question-item strong {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #1E90FF;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #1E90FF;
+            color: white;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .user-info span {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        footer {
+            background: #1E90FF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px 15px 0 0;
+            margin-top: 40px;
+        }
+
+        .footer-links a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <img src="../assets/images/logo.png" alt="Fun Quiz Logo">
+    <!-- Sidebar Menu -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="close-btn" onclick="toggleSidebar()">&times;</button>
         </div>
-        <div class="user-info">
-            <img src="../assets/images/avatar.png" alt="User Avatar" class="user-avatar">
-            <span class="user-id">Player</span>
-        </div>
-    </header>
+        <ul class="sidebar-links">
+            <li><a href="designer-dashboard.html">Home</a></li>
+            <li><a href="#">Manage Categories</a></li>
+            <li><a href="questions.html">Questions</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
 
-    <main class="main-content">
-        <h1 class="title">Questions</h1>
-        <table class="questions-table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Question</th>
-                    <th>Category</th>
-                    <th>Difficulty</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>What is the capital of France?</td>
-                    <td>Geography</td>
-                    <td>Easy</td>
-                    <td><button class="action-btn">View</button></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>What is 2 + 2?</td>
-                    <td>Math</td>
-                    <td>Easy</td>
-                    <td><button class="action-btn">View</button></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Who wrote "Hamlet"?</td>
-                    <td>Literature</td>
-                    <td>Medium</td>
-                    <td><button class="action-btn">View</button></td>
-                </tr>
-                <!-- Add more questions as needed -->
-            </tbody>
-        </table>
-    </main>
+    <!-- Page Content -->
+    <div id="content">
+        <!-- Header -->
+        <header>
+            <div class="user-info" onclick="toggleSidebar()">
+                <img src="../assets/images/avatar.png" alt="User Avatar">
+                <span id="user-id">User123</span>
+            </div>
+            <div class="logo">
+                <a href="designer-dashboard.html">
+                    <img src="../assets/images/logo.png" alt="Interactive Game Logo" style="height: 50px;">
+                </a>
+            </div>
+        </header>
 
-    <footer>
-        <p>&copy; 2024 FunQuiz. All rights reserved.</p>
-    </footer>
+        <!-- Main Content -->
+        <main>
+            <div class="dashboard-container">
+                <h1 style="text-align: center; color: #1E90FF;">Manage Your Questions</h1>
+
+                <div class="quick-actions">
+                    <button onclick="filterMyQuestions()">View My Questions</button>
+                    <select id="categoryFilter" onchange="filterQuestions()">
+                        <option value="all">All Categories</option>
+                        <option value="math">Math</option>
+                        <option value="geography">Geography</option>
+                        <option value="social-science">Social Science</option>
+                    </select>
+                    <select id="designerFilter" onchange="filterQuestions()">
+                        <option value="all">All Designers</option>
+                        <option value="User123">User123</option>
+                        <option value="Ali Somia">Ali Somia</option>
+                        <option value="Maryam">Maryam</option>
+                        <option value="Muhammad">Muhammad</option>
+                    </select>
+                    <button onclick="showAllQuestions()">Show All Questions</button>
+                </div>
+
+                <section class="questions-list section">
+                    <ul id="questions-list">
+                        <!-- Questions -->
+                        <li class="question-item" data-category="math" data-designer="Ali Somia">
+                            <strong>Math Question</strong>
+                            What is the value of 9 + 8 × 3?<br>
+                            <span class="incorrect-answer">A) 51</span><br>
+                            <span class="incorrect-answer">B) 33</span><br>
+                            <span class="incorrect-answer">C) 24</span><br>
+                            <span class="correct-answer">D) 19</span><br>
+                            <strong>Category: Math | Designer: Ali Somia</strong>
+                        </li>
+                        <li class="question-item" data-category="math" data-designer="Maryam">
+                            <strong>Math Question</strong>
+                            If 4x = 28, what is the value of x?<br>
+                            <span class="correct-answer">A) 7</span><br>
+                            <span class="incorrect-answer">B) 6</span><br>
+                            <span class="incorrect-answer">C) 5</span><br>
+                            <span class="incorrect-answer">D) 8</span><br>
+                            <strong>Category: Math | Designer: Maryam</strong>
+                        </li>
+                        <li class="question-item" data-category="math" data-designer="Muhammad">
+                            <strong>Math Question</strong>
+                            What is the next number in the sequence: 2, 4, 8, 16, __?<br>
+                            <span class="incorrect-answer">A) 18</span><br>
+                            <span class="incorrect-answer">B) 24</span><br>
+                            <span class="correct-answer">C) 32</span><br>
+                            <span class="incorrect-answer">D) 36</span><br>
+                            <strong>Category: Math | Designer: Muhammad</strong>
+                        </li>
+                        <li class="question-item" data-category="geography" data-designer="Ali Somia">
+                            <strong>Geography Question</strong>
+                            Which is the largest ocean on Earth?<br>
+                            <span class="incorrect-answer">A) Atlantic Ocean</span><br>
+                            <span class="incorrect-answer">B) Indian Ocean</span><br>
+                            <span class="correct-answer">C) Pacific Ocean</span><br>
+                            <span class="incorrect-answer">D) Arctic Ocean</span><br>
+                            <strong>Category: Geography | Designer: Ali Somia</strong>
+                        </li>
+                        <li class="question-item" data-category="geography" data-designer="User123">
+                            <strong>Geography Question</strong>
+                            In which continent is the country of Brazil located?<br>
+                            <span class="incorrect-answer">A) Africa</span><br>
+                            <span class="incorrect-answer">B) Europe</span><br>
+                            <span class="correct-answer">C) South America</span><br>
+                            <span class="incorrect-answer">D) Asia</span><br>
+                            <strong>Category: Geography | Designer: User123</strong>
+                        </li>
+                        <li class="question-item" data-category="social-science" data-designer="Maryam">
+                            <strong>Social Science Question</strong>
+                            Who is known as the father of Sociology?<br>
+                            <span class="incorrect-answer">A) Max Weber</span><br>
+                            <span class="correct-answer">B) Auguste Comte</span><br>
+                            <span class="incorrect-answer">C) Karl Marx</span><br>
+                            <span class="incorrect-answer">D) Emile Durkheim</span><br>
+                            <strong>Category: Social Science | Designer: Maryam</strong>
+                        </li>
+                        <li class="question-item" data-category="social-science" data-designer="User123">
+                            <strong>Social Science Question</strong>
+                            Which ancient civilization built the pyramids?<br>
+                            <span class="incorrect-answer">A) Romans</span><br>
+                            <span class="incorrect-answer">B) Greeks</span><br>
+                            <span class="correct-answer">C) Egyptians</span><br>
+                            <span class="incorrect-answer">D) Mesopotamians</span><br>
+                            <strong>Category: Social Science | Designer: User123</strong>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <ul class="footer-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('content').classList.toggle('active');
+        }
+
+        function filterQuestions() {
+            const selectedCategory = document.getElementById('categoryFilter').value;
+            const selectedDesigner = document.getElementById('designerFilter').value;
+            const questions = document.querySelectorAll('.question-item');
+
+            questions.forEach(question => {
+                const questionCategory = question.getAttribute('data-category');
+                const questionDesigner = question.getAttribute('data-designer');
+
+                // Determine visibility
+                let isCategoryMatch = selectedCategory === 'all' || questionCategory === selectedCategory;
+                let isDesignerMatch = selectedDesigner === 'all' || questionDesigner === selectedDesigner;
+
+                if (isCategoryMatch && isDesignerMatch) {
+                    question.classList.add('visible');
+                    question.style.display = 'block';
+                } else {
+                    question.classList.remove('visible');
+                    question.style.display = 'none';
+                }
+            });
+        }
+
+        function filterMyQuestions() {
+            document.getElementById('designerFilter').value = 'User123';
+            filterQuestions();
+        }
+
+        function showAllQuestions() {
+            document.getElementById('categoryFilter').value = 'all';
+            document.getElementById('designerFilter').value = 'all';
+            filterQuestions();
+        }
+
+        // Initially show all questions
+        document.addEventListener('DOMContentLoaded', () => {
+            filterQuestions();
+        });
+    </script>
 </body>
 </html>
