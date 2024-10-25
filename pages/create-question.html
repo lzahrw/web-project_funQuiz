@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <title>Create New Question</title>
     <link rel="stylesheet" href="../assets/css/designer-style.css">
-    <!-- SEO Meta Tags -->
     <meta name="description" content="Create a new question for players in the interactive game platform.">
     <meta name="keywords" content="interactive game, designer, create question, multiple-choice">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- For responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <!-- Sidebar Menu -->
     <nav id="sidebar">
         <div class="sidebar-header">
             <h3>Menu</h3>
@@ -26,7 +24,6 @@
     </nav>
 
     <div id="content">
-        <!-- Header -->
         <header>
             <div class="user-info" onclick="toggleSidebar()">
                 <img src="../assets/images/avatar.png" alt="User Avatar">
@@ -44,7 +41,6 @@
             </div>
         </header>
 
-        <!-- Main Content -->
         <main>
             <div class="form-container">
                 <h1>Create New Question</h1>
@@ -78,7 +74,6 @@
                         <label for="category">Category:</label>
                         <select id="category" name="category" required>
                             <option value="" disabled selected>Select Category</option>
-                            <!-- Populate with existing categories -->
                             <option value="category1">Category 1</option>
                             <option value="category2">Category 2</option>
                         </select>
@@ -110,7 +105,6 @@
             </div>
         </main>
 
-        <!-- Footer -->
         <footer>
             <ul class="footer-links">
                 <li><a href="#">About Us</a></li>
@@ -122,7 +116,6 @@
         </footer>
     </div>
 
-    <!-- JavaScript for Sidebar Menu -->
     <script>
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('active');

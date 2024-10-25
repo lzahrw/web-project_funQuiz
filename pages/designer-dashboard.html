@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <title>Designer Dashboard</title>
     <link rel="stylesheet" href="../assets/css/designer-style.css">
-    <!-- SEO Meta Tags -->
     <meta name="description" content="Designer dashboard for creating and managing questions and categories in the interactive game platform.">
     <meta name="keywords" content="interactive game, designer, dashboard, questions, categories">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <!-- Sidebar Menu -->
     <nav id="sidebar">
         <div class="sidebar-header">
             <h3>Menu</h3>
@@ -18,16 +16,14 @@
         </div>
         <ul class="sidebar-links">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Manage Categories</a></li>
+            <li><a href="manage-categories.html">Manage Categories</a></li>
             <li><a href="questions.html">Questions</a></li>
             <li><a href="#">Profile</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="login.html">Logout</a></li>
         </ul>
     </nav>
 
-    <!-- Page Content -->
     <div id="content">
-        <!-- Header -->
         <header>
             <div class="user-info" onclick="toggleSidebar()">
                 <img src="../assets/images/avatar.png" alt="User Avatar">
@@ -40,7 +36,6 @@
             </div>
         </header>
 
-        <!-- Main Content -->
         <main>
             <div class="dashboard-container">
                 <h1>Welcome, <span id="designer-name">User123</span>!</h1>
@@ -70,7 +65,6 @@
             </div>
         </main>
 
-        <!-- Footer -->
         <footer>
             <ul class="footer-links">
                 <li><a href="#">About Us</a></li>
@@ -82,7 +76,6 @@
         </footer>
     </div>
 
-    <!-- JavaScript -->
     <script>
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('active');

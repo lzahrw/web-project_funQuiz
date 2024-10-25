@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,6 @@
   font-family: 'Roboto', sans-serif;
 }
 
-/* Full-screen background styling */
 body {
   background: linear-gradient(135deg, #ffffff, #875ba5);
   color: #fff;
@@ -15,7 +14,6 @@ body {
   flex-direction: column;
 }
 
-/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -47,12 +45,10 @@ header {
   border-radius: 8px;
 }
 
-/* Logo styling */
 .logo a img {
   width: 150px;
 }
 
-/* Sidebar */
 #sidebar {
   position: fixed;
   top: 0;
@@ -115,7 +111,6 @@ header {
   color: #ffcc33;
 }
 
-/* Hamburger Styling */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -130,7 +125,6 @@ header {
   transition: all 0.3s ease;
 }
 
-/* Content */
 #content {
   transition: margin-left 0.3s ease;
   margin-left: 0;
@@ -144,7 +138,6 @@ header {
   margin-left: 250px;
 }
 
-/* Main Content */
 main {
   flex: 1;
   display: flex;
@@ -164,7 +157,6 @@ main {
   text-align: center;
 }
 
-/* Quick actions styling */
 .quick-actions {
   margin-bottom: 20px;
 }
@@ -188,7 +180,6 @@ main {
   background-color: #ff8c00;
 }
 
-/* Statistics and Recent Activity styling */
 .section {
   margin-top: 30px;
   text-align: left;
@@ -219,7 +210,6 @@ main {
   text-decoration: underline;
 }
 
-/* Footer */
 footer {
   background: rgba(255, 255, 255, 0.15);
   padding: 15px 0;
@@ -248,9 +238,7 @@ footer {
   text-decoration: underline;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
-  /* Adjust sidebar width */
   #sidebar {
       width: 200px;
   }
@@ -264,7 +252,6 @@ footer {
   }
 }
 
-/* Sidebar Styling */
 #sidebar {
   position: fixed;
   top: 0;
@@ -364,7 +351,6 @@ footer {
   border-radius: 8px;
 }
 
-/* Content */
 #content {
   margin-left: 0;
   transition: margin-left 0.3s ease;
@@ -374,7 +360,6 @@ footer {
   margin-left: 250px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .hamburger {
       display: flex;
@@ -393,7 +378,6 @@ footer {
   }
 }
 
-/* Form Container Styling */
 .form-container {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 15px;
